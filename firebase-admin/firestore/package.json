@@ -17,6 +17,7 @@
   "scripts": {
     "build": "./node_modules/.bin/tsc",
     "watch": "./node_modules/.bin/tsc --watch"
+    "lint": "./node_modules/.bin/tslint --project tsconfig.json 'src/**/*.ts'"
   },
   "keywords": [],
   "author": "",
