@@ -9,6 +9,10 @@ admin.initializeApp({
 });
 
 const db = admin.firestore();
+
+const settings = { timestampsInSnapshots: true };
+db.settings(settings);
+
 db.collection('messages').get()
     .then((snapshot) => {
       snapshot.forEach((doc) => {
