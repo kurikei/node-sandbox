@@ -1,3 +1,6 @@
 {
-  "extends": "airbnb"
+  "extends": "airbnb",
+  "rules": {
+    "import/no-unresolved": "off" // プロジェクトの階層的にモジュールごとにpackage.jsonを持っているが、CI上でnpm installしないのでOFFにする
+  }
 }
