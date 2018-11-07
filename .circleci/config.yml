@@ -1,0 +1,33 @@
+version: 2
+
+workflows:
+  version: 2
+  build:
+    jobs:
+      - lint
+
+jobs:
+  lint:
+    docker:
+      - image: circleci/node
+        environment:
+          CIRCLE_TEST_REPORTS: &circle_test_report /tmp/test-results
+    steps:
+      - checkout
+      - type: cache-restore
+        key: v1-node_module-{{ checksum "package.json" }}
+      - run: npm install
+      - type: cache-save
+        key: v1-node_module-{{ checksum "package.json"}}
+        paths:
+          - node_modules
+      - run:
+          name: Add node executables dir to $PATH
+          command: echo 'export PATH=node_modules/.bin/:$PATH' >> $BASH_ENV 
+      - run:
+          name: Lint with report
+          command: |
+            mkdir -p $CIRCLE_TEST_REPORTS/reports
+            eslint npm --format=junit --output-file $CIRCLE_TEST_REPORTS/reports/eslint-spec.xml
+      - store_test_results:
+          path: *circle_test_report
