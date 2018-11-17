@@ -28,6 +28,6 @@ jobs:
           name: Lint with report
           command: |
             mkdir -p $CIRCLE_TEST_REPORTS/reports
-            eslint npm --format=junit --output-file $CIRCLE_TEST_REPORTS/reports/eslint-spec.xml
+            eslint npm/**/*.js --format=junit --output-file $CIRCLE_TEST_REPORTS/reports/eslint-spec.xml
       - store_test_results:
           path: *circle_test_report
