@@ -1,6 +1,0 @@
-{
-  "dependencies": {
-    "dotenv": "5.0.1",
-    "node-dash-button": "0.6.1"
-  }
-}
