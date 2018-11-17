@@ -1,7 +1,7 @@
-/* eslint-enable no-console */
+/* eslint-disable no-console */
 const schedule = require('node-schedule');
 
 schedule.scheduleJob('* * * * *', () => {
   console.log('tick');
 });
-/* eslint-disable no-console */
+/* eslint-enable no-console */
