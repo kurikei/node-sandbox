@@ -5,7 +5,7 @@
     "socket.io-client": "2.2.0"
   },
   "devDependencies": {
-    "@types/node": "10.12.21",
+    "@types/node": "10.12.22",
     "eslint": "5.13.0",
     "eslint-config-airbnb": "17.1.0",
     "eslint-config-prettier": "3.6.0",
